@@ -33,3 +33,15 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# Sublime Text
+*.sublime-workspace
+
+# Linux env
+.directory
+
+# Virtualenv
+venv
+
+# Fabric
+fabfile.py
