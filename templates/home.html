@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <div class="container">
+      <section id="main_content">
+
+        <p>Administrateur système depuis 10 ans, je dispose d'une expertise solide sur les envirronement Linux et Windows ainsi que sur les problématiques réseau.<br/><br/>
+
+                Ayant exercé pour le compte d'agence web de premier plan sur des projets à destination de grands comptes, j'ai une expérience particulière dans le domaine du web avec notamment des connaissances en développement sous PHP et Python et sur les problématiques de sécurité et de performance associées.
+                </p>
+
+        <h1 id="infogérance">infogérance</h1>
+        <p>Gestion et suivi au quotidien de vos serveurs.<br/>
+        Contrôle des performances et de la sécurité, mise à jour et évolution.<br/>
+        Mise en place de solution de monitoring, de plan de reprise d'activité, de load balancing...<br/>
+        </p>
+        <img src="./images/monitor.png" alt="monitoring" /><br/>
+        <a href="#top" onclick="smoothScroll('top'); return false">^</a>
+
+        <h1  id="hébergement">hébergement</h1>
+        <p>Prise en charge ou accompagnement dans le choix et la mise de votre hébergement.<br/>
+        Migration de vos sites, messagerie...<br/>
+        Assistance sur dans les opérations ponctuelles sur vos DNS, déploiement de certificat SSL...<br/>
+        Support pour de nombreuses solutions:
+        </p>
+        <ul>
+          <li>Apache</li>
+          <li>Nginx</li>
+          <li>Varnish</li>
+          <li>IIS</li>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>SQL Server</li>
+          <li>PHP</li>
+          <li>Python</li>
+          <li>Ruby</li>
+          <li>VMWare</li>
+          <li>Proxmox (KVM, OpenVZ)</li>
+          <li>Xen</li>
+          <li>...</li>
+        </ul>
+        <a href="#top" onclick="smoothScroll('top'); return false">^</a>
+
+        <h1 id="devops">devops</h1>
+        <p>Accompagnement dans l'intégration et l'industrialisation de vos projets.<br/>
+        Optimisation de vos système et de vos processus de développement.<br/>
+        Assistance à l'introduction et au déploiement des outils liés à ces problématiques:<br/>
+        </p>
+        <ul>
+          <li>Git</li>
+          <li>Subversion</li>
+          <li>Puppet</li>
+          <li>Fabric</li>
+          <li>Phing</li>
+          <li>Capistrano</li>
+          <li>...</li>
+        </ul>
+        <img src="./images/code.png" alt="code" /><br/>
+        <a href="#top" onclick="smoothScroll('top'); return false">^</a>
+
+        <h1 id="contact">contact</h1>
+        <form method="post" action="contact.php">
+        <fieldset>
+        <label for="name">Nom</label><br/>
+        <input type="text" name="name" id="name" size="25"><br/>
+        <label for="email">E-mail</label><br/>
+        <input type="email" name="email" id="email" size="25"><br/>
+        <label for="phone">Téléphone</label><br/>
+        <input type="text" name="phone" id="phone" size="25"><br/>
+        <label for="url">Site</label><br/>
+        <input type="url" name="url" id="url" size="25"><br/>
+        <label for="message">Message</label><br/>
+        <textarea name="message" id="message"  cols="60" rows="10" ></textarea><br/>
+        <input type="submit" name="submit" id="submit" value="Envoyer le message" />
+        </fieldset>
+        </form>
+        <a href="#top" onclick="smoothScroll('top'); return false">^</a>
+
+     </section>
+    </div>
+
+{% endblock %}

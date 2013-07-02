@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <title>cytek</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}" media="screen" />
+    <!-- <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='print.css') }} media="print" /> -->
+
+<script>
+function currentYPosition() {
+        if (self.pageYOffset)
+                 return self.pageYOffset;
+        if (document.documentElement && document.documentElement.scrollTop)
+                return document.documentElement.scrollTop;
+        if (document.body.scrollTop)
+                 return document.body.scrollTop;
+        return 0;
+}
+function elmYPosition(eID) {
+        var elm  = document.getElementById(eID);
+        var y    = elm.offsetTop;
+        var node = elm;
+        while (node.offsetParent && node.offsetParent != document.body) {
+                node = node.offsetParent;
+                y   += node.offsetTop;
+        } return y;
+}
+function smoothScroll(eID) {
+        var startY   = currentYPosition();
+        var stopY    = elmYPosition(eID);
+        var distance = stopY > startY ? stopY - startY : startY - stopY;
+        if (distance < 100) {
+                scrollTo(0, stopY); return;
+        }
+        var speed = Math.round(distance / 100);
+        if (speed >= 20) speed = 20;
+        var step  = Math.round(distance / 25);
+        var leapY = stopY > startY ? startY + step : startY - step;
+        var timer = 0;
+        if (stopY > startY) {
+                for ( var i=startY; i<stopY; i+=step ) {
+                        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+                        leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+                } return;
+        }
+        for ( var i=startY; i>stopY; i-=step ) {
+                setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+                leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+        }
+}
+</script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1 id="top">cytek</h1>
+        <h2>Services informatique freelance</h2>
+
+        <section id="menu">
+          <ul>
+                <li><a href="#infogérance" onclick="smoothScroll('infogérance'); return false">infogérance</a></li>
+                <li><a href="#hébergement" onclick="smoothScroll('hébergement'); return false">hébergement</a></li>
+                <li><a href="#devops" onclick="smoothScroll('devops'); return false">devops</a></li>
+                <li><a href="#contact" onclick="smoothScroll('contact'); return false">contact</a></li>
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer>
+      <div class="container">
+        <h2>cytek - Services informatique freelance</h2>
+      </div>
+    </footer>
+
+  </body>
+</html>
