@@ -30,10 +30,10 @@ def home():
 
 @app.route('/contact', methods=['POST'])
 def contact():
-    sender=request.form['mail']
+    sender=request.form['email']
     recipient=["info@cytek.fr"]
-    subject= "[cytek] Message de: "+request.form['username']
-    message= request.form['message']+"\n\nTel: "+request.form['tel']+"\n\n Site: "+request.form['site']
+    subject= "[cytek] Message de: "+request.form['name']
+    message= request.form['message']+"\n\nTel: "+request.form['phone']+"\n\n Site: "+request.form['url']
     msg = Message(sender=sender,recipients=body,recipient=message,subject=subject)
     conn.send(msg)
     return render_template('contact.html')
