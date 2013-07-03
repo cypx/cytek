@@ -7,7 +7,7 @@ from flask.ext.mail import Mail, Message
 
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 mail = Mail(app)
 
 @app.errorhandler(404)
