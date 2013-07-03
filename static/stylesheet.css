@@ -78,10 +78,6 @@ footer {
   margin: 40px 0 0 0;
 }
 
-.backtotop {
-  font-size: 32px;
-}
-
 #menu ul li {
   display: inline-block;
   text-align: center;
@@ -149,6 +145,12 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: #999;
   margin: 0 0 5px 0;
+}
+
+#main_content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 dt {
