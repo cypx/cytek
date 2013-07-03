@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, redirect, url_for, abort, render_template
-from flask.ext.mail import Mail
+from flask import Flask, request, redirect, url_for, abort, render_template
+from flask.ext.mail import Mail, Message
 
 
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 mail = Mail(app)
 
 @app.errorhandler(404)
@@ -31,13 +31,14 @@ def home():
 
 @app.route('/contact', methods=['POST'])
 def contact():
-    sender=request.form['email']
-    recipient=["info@cytek.fr"]
-    subject= "[cytek] Message de: "+request.form['name']
-    message= request.form['message']+"\n\nTel: "+request.form['phone']+"\n\n Site: "+request.form['url']
-    msg = Message(sender=sender,recipients=body,recipient=message,subject=subject)
-    conn.send(msg)
-    return render_template('contact.html')
+    if request.method == 'POST':
+        sender=request.form['email']
+        recipient=["info@cytek.fr"]
+        subject= "[cytek] Message de: "+request.form['name']
+        message= request.form['message']+"\n\nTel: "+request.form['phone']+"\n\n Site: "+request.form['url']
+        msg = Message(sender=sender,recipients=recipient,body=message,subject=subject)
+        mail.send(msg)
+        return render_template('contact.html')
 
 if __name__ == '__main__':
     app.run()
