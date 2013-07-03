@@ -7,6 +7,7 @@ from flask.ext.mail import Mail
 
 
 app = Flask(__name__)
+app.debug = False
 mail = Mail(app)
 
 @app.errorhandler(404)
@@ -39,4 +40,4 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

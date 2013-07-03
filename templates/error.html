@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+    <div class="container">
+      <section id="main_content">
+        <p class=error> {{ error }}</p>
+    </section>
+</div>
+{% endif %}
+{% endblock %}
