@@ -44,7 +44,7 @@ def contact():
         except socket_error as serr:
                 error="Erreur, votre mail n'a pas pu être envoyé, serveur mail indisponible"
                 log="from: "+sender+"\n\nSubject: "+subject+"\n\n"+message+"\n\n###############################################\n\n"
-                with open('./message.log', 'wb') as dest_file:
+                with open('./message.log', 'a') as dest_file:
                        dest_file.write(log)
                 return render_template('error.html', error=error.decode("utf-8"))
 
