@@ -43,5 +43,8 @@ nosetests.xml
 # Virtualenv
 venv
 
+# Working env
+message.log
+
 # Fabric
 fabfile.py
