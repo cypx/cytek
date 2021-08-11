@@ -1,6 +1,6 @@
 Flask==1.0
 Flask-Mail==0.9.0
-Jinja2==2.7
+Jinja2==2.11.3
 MarkupSafe==0.18
 Werkzeug==0.15.3
 blinker==1.2
